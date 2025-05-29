@@ -1,0 +1,40 @@
+App.jsx
+import logo from './logo.svg';
+import './App.css';
+import {UserProfile,UserProfiles} from './UserProfile';
+import ProductCard from './ProductCard';
+function App() {
+  return (
+    <div className='App'>
+<UserProfile name="Prachi" age={23}email='abc@gmail.com'/>
+<UserProfiles name="Prachi" age={23}email='abc@gmail.com'/>
+<ProductCard productName="Laptop" price={10000}/>
+ </div>
+  );
+}
+export default App;
+
+...................................
+PAroductCard.jsx
+import React, { useState } from 'react'
+
+export const ProductCard = (props) => {
+    const[quantity,setQuantity]=useState(0);
+    const addToCart=()=>{
+        setQuantity(quantity+1);
+    }
+    const totalPrice=props.price*quantity;
+  return (
+    <div>
+        <div>ProductName:{props.productName}</div>
+        <div>Price:{props.price}</div>
+        <div>Quantity:{quantity}</div>
+        <div>Total:Rs{quantity*props.price}</div>
+        <button onClick={addToCart}>Add to Cart</button>
+
+      
+    </div>
+  )
+}
+
+export default ProductCard
