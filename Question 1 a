@@ -1,0 +1,49 @@
+Question 1
+App.js:
+import logo from './logo.svg';
+import './App.css';
+import {UserProfile,UserProfiles} from './UserProfile';
+
+function App() {
+  return (
+    <div className='App'>
+<UserProfile name="Prachi" age={23}email='abc@gmail.com'/>
+<UserProfiles name="Prachi" age={23}email='abc@gmail.com'/>
+
+ </div>
+  );
+}
+export default App;
+.............................................................
+UserProfile.jsx
+import React, { useState } from 'react'
+
+export const UserProfile = (props) => {
+    const[currentAge,setCurrentAge]=useState(props.age)
+    const incrementAge=()=>{
+        setCurrentAge(currentAge+1);
+     }
+  return (
+    <div>
+      <div>Name:{props.name}</div>
+      <div>age:{currentAge}</div>
+      <div>email:{props.email}</div>
+      <button onClick={incrementAge}>Increase Age </button>
+    </div>
+  )
+}
+.......................class component
+class UserProfiles extends React.Component{
+        render(){
+            return(
+                <div>
+                    <div>Name:{this.props.name}</div>
+                    <div>Age:{this.props.age}</div>
+                    <div>email:{this.props.email}</div>
+                    
+                </div>
+            )
+        }
+    }
+export default UserProfile
+export {UserProfiles}
